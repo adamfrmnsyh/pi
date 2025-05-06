@@ -13,7 +13,7 @@ else:
     st.stop()
 
 # Daftar label prediksi (ganti sesuai output model)
-class_labels = ["organik", "anorganik", "logam", "kaca"]
+class_labels = ['cardboard', 'clothes', 'glass', 'metal', 'paper', 'plastic']
 
 # Judul aplikasi
 st.title("Klasifikasi Sampah Berbasis Gambar")
