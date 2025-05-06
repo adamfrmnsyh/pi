@@ -3,10 +3,17 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
-from tensorflow.keras.models import load_model
+import os
 
-model = load_model("model.keras")
+# Load model
+if os.path.exists("model.keras"):
+    model = load_model("model.keras")
+else:
+    st.error("❌ File model.keras tidak ditemukan.")
+    st.stop()
 
+# Daftar label prediksi (ganti sesuai output model)
+class_labels = ["organik", "anorganik", "logam", "kaca"]
 
 # Judul aplikasi
 st.title("Klasifikasi Sampah Berbasis Gambar")
