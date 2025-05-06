@@ -3,10 +3,10 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
+from tensorflow.keras.models import load_model
 
-# Load model
-model = load_model("model.h5")
-class_labels = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']  # sesuaikan dengan kelasmu
+model = load_model("model.keras")
+
 
 # Judul aplikasi
 st.title("Klasifikasi Sampah Berbasis Gambar")
@@ -30,7 +30,7 @@ if uploaded_file is not None:
     predicted_class = class_labels[np.argmax(prediction)]
 
     # Threshold
-    if confidence < 0.7:
+    if confidence < 0.3:
         st.warning("Model tidak yakin terhadap kelas gambar ini.")
     else:
         st.success(f"Prediksi: {predicted_class} ({confidence*100:.2f}% yakin)")
